@@ -2,6 +2,9 @@ import sbt._
 
 object Dependencies {
 
+  val akka_version = "2.5.19"
+  val jackson_version = "2.8.11"
+
   // Misc --------------------------------------------------------------------------------------------------------------
   
   lazy val inject = "javax.inject" % "javax.inject" % "1"
@@ -12,6 +15,7 @@ object Dependencies {
   // Test --------------------------------------------------------------------------------------------------------------
   
   lazy val scala_test = "org.scalatest" %% "scalatest" % "3.0.5"
+  lazy val akka_stream_testkit = "com.typesafe.akka" %% "akka-stream-testkit" % akka_version
   lazy val easy_mock = "org.easymock" % "easymock" % "4.0.2"
   lazy val scala_lang = "org.scala-lang" % "scala-library" % "2.12.8"
   lazy val junit_interface = "com.novocode" % "junit-interface" % "0.11"
@@ -23,11 +27,11 @@ object Dependencies {
   // Overrides ---------------------------------------------------------------------------------------------------------
   
   lazy val scala_parser_combinators = "org.scala-lang.modules" %% "scala-parser-combinators" % "1.0.7"
-  lazy val akka_stream = "com.typesafe.akka" %% "akka-stream" % "2.5.19"
-  lazy val akka_actor = "com.typesafe.akka" %% "akka-actor" % "2.5.19"
+  lazy val akka_stream = "com.typesafe.akka" %% "akka-stream" % akka_version
+  lazy val akka_actor = "com.typesafe.akka" %% "akka-actor" % akka_version
   lazy val guava = "com.google.guava" % "guava" % "23.6.1-jre"
-  lazy val jackson_databind = "com.fasterxml.jackson.core" % "jackson-databind" % "2.8.11"
-  lazy val jackson_core = "com.fasterxml.jackson.core" % "jackson-core" % "2.8.11"
-  lazy val jackson_annotations = "com.fasterxml.jackson.core" % "jackson-annotations" % "2.8.11"
+  lazy val jackson_databind = "com.fasterxml.jackson.core" % "jackson-databind" % jackson_version
+  lazy val jackson_core = "com.fasterxml.jackson.core" % "jackson-core" % jackson_version
+  lazy val jackson_annotations = "com.fasterxml.jackson.core" % "jackson-annotations" % jackson_version
 
 }

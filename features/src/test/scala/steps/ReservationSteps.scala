@@ -2,7 +2,6 @@ package steps
 
 import cucumber.api.scala.{EN, ScalaDsl}
 import steps.World._
-import org.hamcrest.Matchers._
 
 class ReservationSteps extends ScalaDsl with EN with Server {
   When("""([^ ]+) makes a reservation of ([0-9]+) seats on ([0-9]{2})-([0-9]{2})-([0-9]{4})""") { (actor: String, seats: Int, day: Int, month: Int, year: Int) =>

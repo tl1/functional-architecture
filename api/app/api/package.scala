@@ -1,6 +1,6 @@
 import java.time.LocalDate
 
-import bookings.ReservationCommand
+import reservations.ReservationCommand
 import play.api.libs.json._
 import Json._
 
