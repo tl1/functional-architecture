@@ -18,10 +18,10 @@ class EnvelopSubscriberSpec extends FlatSpec with Matchers with BeforeAndAfterAl
     Await.result(system.terminate(), 2 seconds)
   }
 
-  "Subscriber" should "envelop message" in {
+  "EnvelopSubscriber" should "envelop message" in {
     val publisher = TestPublisher.probe[String]()
     val downstream = TestSubscriber.probe[Envelope[String]]()
-    publisher.subscribe(envelopSubscriber(downstream))
+    publisher.subscribe(doEnvelop(downstream))
 
     publisher
       .sendNext("message")

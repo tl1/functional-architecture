@@ -13,7 +13,7 @@ package object reservations {
     seats: Int
   )
 
-  def reservationSubscriber(implicit mat: Materializer): Subscriber[Envelope[ReservationCommand]] = Flow[Envelope[ReservationCommand]]
+  def doReservation(implicit mat: Materializer): Subscriber[Envelope[ReservationCommand]] = Flow[Envelope[ReservationCommand]]
     .to(Sink.ignore)
     .runWith(Source.asSubscriber[Envelope[ReservationCommand]])
 

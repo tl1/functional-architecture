@@ -19,9 +19,9 @@ package object envelopes {
   private def envelopWithDefaults[T] =
     (message: T) => envelop(UUID.randomUUID(), OffsetDateTime.now(), message)
 
-  def envelopSubscriber[T](next: Subscriber[Envelope[T]])(implicit mat: Materializer): Subscriber[T] = Flow[T]
+  def doEnvelop[T](downstream: Subscriber[Envelope[T]])(implicit mat: Materializer): Subscriber[T] = Flow[T]
     .map(envelopWithDefaults)
-    .to(Sink.fromSubscriber(next))
+    .to(Sink.fromSubscriber(downstream))
     .runWith(Source.asSubscriber[T])
 
 }
