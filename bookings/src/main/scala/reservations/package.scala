@@ -14,7 +14,9 @@ package object reservations {
   )
 
   def doReservation(implicit mat: Materializer): Subscriber[Envelope[ReservationCommand]] = Flow[Envelope[ReservationCommand]]
-    .to(Sink.ignore)
+    .to(Sink.foreach { elem =>
+      println(elem)
+    })
     .runWith(Source.asSubscriber[Envelope[ReservationCommand]])
 
 }
