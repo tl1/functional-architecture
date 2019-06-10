@@ -1,0 +1,1 @@
+POST    /reservations           api.BookingsApi.reservations
